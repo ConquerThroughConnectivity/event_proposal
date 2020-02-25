@@ -72,9 +72,17 @@ flutter:
         - family: Mops
           fonts:
             - asset: lib/assets/Mops.ttf
+        - family: FredokaOne
+          fonts:
+            - asset: lib/assets/FredokaOne-Regular.ttf
+        - family: Montserrat
+          fonts:
+            - asset: lib/assets/Montserrat-Regular.ttf
   assets:
     - lib/assets/background.jpg
     - lib/assets/logo.png
+    - lib/assets/loading.gif
+    - lib/assets/UElogo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

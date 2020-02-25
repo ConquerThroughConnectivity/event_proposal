@@ -1,4 +1,5 @@
 import 'package:event_proposal_admin/choose.dart';
+import 'package:event_proposal_admin/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: colorCustom,
       ),
       debugShowCheckedModeBanner: false,
-      home: Main(),//Executing main screen.
+      home: SplashScreen(),//Executing main screen.
     );
   }
 }

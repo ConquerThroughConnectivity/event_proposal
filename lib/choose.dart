@@ -32,7 +32,7 @@ class _MainState extends State<Main> {
     allowFontScaling: true,
 
     )..init(context);
-    return Scaffold(
+    return WillPopScope(child: Scaffold(
     backgroundColor: Color(0xFFFF3345),
     body: Stack(
       fit: StackFit.expand,
@@ -82,7 +82,8 @@ class _MainState extends State<Main> {
       ],
     ),
   
-    );
+    ),
+    onWillPop: ()  async=> false);
     
   }
   void setBottomSheet(BuildContext context) {

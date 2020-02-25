@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:event_proposal_admin/Organization/Home/CreateEvent.dart';
