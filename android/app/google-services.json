@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "426352090130",
+    "firebase_url": "https://event-proposal.firebaseio.com",
+    "project_id": "event-proposal",
+    "storage_bucket": "event-proposal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426352090130:android:fa8be93a36e3dcf7ab8ccb",
+        "android_client_info": {
+          "package_name": "com.example.event_proposal_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426352090130-72kujlqu0tk6sh0klcoareab05csuub4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0LdvT2Z3clfB30LQgSGf1c-ET46sPkHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426352090130-72kujlqu0tk6sh0klcoareab05csuub4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
