@@ -118,6 +118,9 @@ class _SignupVenueState extends State<SignupVenue> {
                           if(val.isEmpty){
                             return 'This field cannot be Empty';
                           }
+                          if(val.length <4){
+                             return 'Lenght Must Be 4 or higher';
+                          }
                         },
                         onChanged: (val){
                           setState(() {
