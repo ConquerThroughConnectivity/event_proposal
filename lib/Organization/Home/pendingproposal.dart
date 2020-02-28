@@ -211,14 +211,14 @@ class _OrganizationPendingState extends State<OrganizationPending> {
                                         ),
                                       ),
                                       Padding(padding: EdgeInsets.only(top: 5)),
-                                      Card(
+                                       Card(
                                         color: Colors.white,
                                         elevation: 10.0,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(4.0)),
                                           child: ListTile(
                                           leading: Icon(Icons.person_pin, color: Colors.black,),
-                                          title: Text("Noted By Adviser: "+" "+values.values.toList()[index]['noted_by_adviser'], style: TextStyle(
+                                          title: Text("Noted By Pres.: "+" "+values.values.toList()[index]['noted_by_org_president'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
@@ -232,7 +232,7 @@ class _OrganizationPendingState extends State<OrganizationPending> {
                                           borderRadius: BorderRadius.circular(4.0)),
                                           child: ListTile(
                                           leading: Icon(Icons.person_pin, color: Colors.black,),
-                                          title: Text("Noted By Pres.: "+" "+values.values.toList()[index]['noted_by_org_president'], style: TextStyle(
+                                          title: Text("Noted By Adviser: "+" "+values.values.toList()[index]['noted_by_adviser'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),

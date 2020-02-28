@@ -7,25 +7,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final double defaultScreenWidth = 420.0;
 final double defaultScreenHeight = 820.0;
-class VenueAccount extends StatefulWidget {
+
+class VenueApproverAccount extends StatefulWidget {
   @override
-  _VenueAccountState createState() => _VenueAccountState();
+  _VenueApproverAccountState createState() => _VenueApproverAccountState();
 }
 
-class _VenueAccountState extends State<VenueAccount> {
+class _VenueApproverAccountState extends State<VenueApproverAccount> {
   @override
   Widget build(BuildContext context) {
+
     ScreenUtil.instance = ScreenUtil(
       width: defaultScreenWidth,
       height: defaultScreenHeight,
       allowFontScaling: true,
     )..init(context);
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.4,
         centerTitle: true,
         title: Text(
-          "Venue Account List", style: TextStyle(
+          "VenueApprover Account List", style: TextStyle(
            fontFamily: "Mops",
            fontSize: ScreenUtil.instance.setSp(20), 
           ),
@@ -42,7 +45,7 @@ class _VenueAccountState extends State<VenueAccount> {
             alignment: Alignment.center,
             padding: EdgeInsets.all(16),
             child: StreamBuilder(
-              stream: FirebaseDatabase.instance.reference().child("User").child("Venue").onValue,
+              stream: FirebaseDatabase.instance.reference().child("User").child("VenueApprovers").onValue,
               builder: (BuildContext context,AsyncSnapshot<Event> snapshot){
                 if(snapshot.connectionState==ConnectionState.waiting){
                   return LoadingList();
@@ -123,7 +126,7 @@ class _VenueAccountState extends State<VenueAccount> {
                             shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                             child: ListTile(
-                            title: Text("Venue In-Charge: "+values.values.toList()[index]["org_type"],style: TextStyle(
+                            title: Text("Approver: "+values.values.toList()[index]["approver_name"],style: TextStyle(
                             fontFamily: 'Mops',
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
@@ -160,7 +163,7 @@ class _VenueAccountState extends State<VenueAccount> {
                               firstname: values.values.toList()[index]['firstname'],
                               middlename: values.values.toList()[index]['middlename'],
                               lastname: values.values.toList()[index]['lastname'],
-                              orgname: "Venue",
+                              orgname: "VenueApprovers",
                               ),
                                fullscreenDialog: true));
                             }),

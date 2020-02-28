@@ -136,7 +136,7 @@ class _SaoAcceptedState extends State<SaoAccepted> {
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
-                                          trailing: Text("Date: "+" "+values.values.toList()[index]['date'], style: TextStyle(
+                                          trailing: Text("Date: "+" "+values.values.toList()[index]['date_of_event'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
@@ -215,21 +215,21 @@ class _SaoAcceptedState extends State<SaoAccepted> {
                                           borderRadius: BorderRadius.circular(4.0)),
                                           child: ListTile(
                                           leading: Icon(Icons.person_pin, color: Colors.black,),
-                                          title: Text("Noted By Adviser: "+" "+values.values.toList()[index]['noted_by_adviser'], style: TextStyle(
+                                          title: Text("Noted By Pres.: "+" "+values.values.toList()[index]['noted_by_org_president'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
                                         ),
                                       ),
                                       Padding(padding: EdgeInsets.only(top: 5)),
-                                      Card(
+                                       Card(
                                         color: Colors.white,
                                         elevation: 10.0,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(4.0)),
                                           child: ListTile(
                                           leading: Icon(Icons.person_pin, color: Colors.black,),
-                                          title: Text("Noted By Pres.: "+" "+values.values.toList()[index]['noted_by_org_president'], style: TextStyle(
+                                          title: Text("Noted By Adviser: "+" "+values.values.toList()[index]['noted_by_adviser'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),

@@ -13,6 +13,7 @@ import 'package:event_proposal_admin/globalEvents.dart';
 import 'package:event_proposal_admin/globalEventsUpcoming.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -35,6 +36,7 @@ class HomeOrganization extends StatefulWidget {
 
 
 class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerProviderStateMixin {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
   int selectedIndex = 0;
   TabController tabController;
   Widget callPages(int currentIndex, BuildContext context) {
@@ -66,11 +68,52 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
       });
       }else{
         return;
-      }
+      }    
 
     });
+
+    // flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    // var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
+    // var iOS = new IOSInitializationSettings();
+    // var initSetttings = new InitializationSettings(android, iOS);
+    // flutterLocalNotificationsPlugin.initialize(initSetttings,
+    // onSelectNotification: onSelectNotification);
+
+
+    // FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
+    //   Map<dynamic, dynamic> values =await dataSnapshot.value;
+    //   if(values!=null){
+    //     values.forEach((key, values){
+    //      if(values!=null){
+           
+    //       if(values['incharge'].toString().contains("Accepted")){
+    //         showNotification();
+    //       }
+    //      }
+          
+    //   });
+    //   }else{
+    //     return;
+    //   }    
+
+    // });
+
+
+    
     super.initState();
   }
+  
+  Future onSelectNotification(String payload) {
+    debugPrint("payload : $payload");
+    return showDialog(
+      context: context,
+      builder: (_) => new AlertDialog(
+        title: new Text('Notification'),
+        content: new Text('$payload'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(child: Scaffold(
@@ -346,5 +389,17 @@ Widget drawer(){
 
  
 }
+showNotification() async {
+    var android = new AndroidNotificationDetails(
+        'channel id', 'channel NAME', 'CHANNEL DESCRIPTION',
+        priority: Priority.High,importance: Importance.Max
+    );
+    var iOS = new IOSNotificationDetails();
+    var platform = new NotificationDetails(android, iOS);
+    await flutterLocalNotificationsPlugin.show(
+        0, 'An Approval has been accepted', 'Notification', platform,
+        payload: 'Youre request has been accepted');
+  }
+
  
 }

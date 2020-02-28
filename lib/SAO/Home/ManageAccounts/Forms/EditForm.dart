@@ -325,6 +325,18 @@ class _EditFormState extends State<EditForm> {
                               });
                              popupInvalid("Update Succes", "You changed this user info");
                             }
+                            else if(widget.orgname.toString().contains("VenueApprovers")){
+                            FirebaseDatabase.instance.reference().child("User").child("VenueApprovers").child(schoolID.text).update({
+                            'firstname': firstname.text,
+                            'lastname': lastname.text,
+                            'id': schoolID.text,
+                            'password': password.text, 
+                              });
+                              setState(() {
+                                isload =false;
+                              });
+                             popupInvalid("Update Succes", "You changed this user info");
+                            }
 
                           }
                         

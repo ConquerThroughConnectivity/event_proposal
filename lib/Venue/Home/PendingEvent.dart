@@ -198,15 +198,15 @@ class _PendingVenueState extends State<PendingVenue> {
                                                               ),), 
                                                             onPressed: () async {
                                                               setState(() {
-                                                                Navigator.pop(context);
-                                                                
-                                                                FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("incharge").equalTo("Accepted").once().then((DataSnapshot snapshot) async{
-                          
+                                                               
+                                                                 Navigator.pop(context);
+                                                                if(values.values.toList()[index]['incharge'].toString().contains("Pending")){
+                                                                   FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("incharge").equalTo("Accepted").once().then((DataSnapshot snapshot) async{
                                                                     Map<dynamic, dynamic> value =await snapshot.value;
                                                                     if(value!=null){
 
                                                                       value.forEach((key, value){
-                                  
+                                                                          
                                                                           if(values.values.toList()[index]['venue'].toString().contains(value['venue']) && values.values.toList()[index]['date_of_event'].toString().contains(value['date_of_event'])){
                                                                             popupInvalid("This Venue and date of event reservation already exist");
                                                                             setState(() {
@@ -228,11 +228,11 @@ class _PendingVenueState extends State<PendingVenue> {
                                                                             }).then((onValue){
 
                                                                             });
+                                                                            
                                                                       }
-                                                                    }else{
-
                                                                     }
                                                                 });
+                                                                }
                                                                 
                                                               });
                                                             },

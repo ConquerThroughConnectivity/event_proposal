@@ -36,8 +36,6 @@ class _ApproverPendingState extends State<ApproverPending> {
       adviser ="org_adviser_status";
     }else if(widget.orgtype.contains("Organization President")){
       adviser ="org_president_status";
-    }else if(widget.orgtype.contains("Dean's Office")){
-      adviser ="org_dean_status";
     }
     print(widget.orgname);
     print(widget.organization);
@@ -306,29 +304,6 @@ class _ApproverPendingState extends State<ApproverPending> {
 
                                                                 });
 
-                                                                }else if(widget.orgtype.contains("Dean's Office")){
-                                                                  if(values.values.toList()[index]['approver'].toString().contains("Accepted") && values.values.toList()[index]['incharge'].toString().contains("Accepted")
-                                                                  && values.values.toList()[index]['org_adviser_status'].toString().contains("Accepted") && values.values.toList()[index]['org_president_status'].toString().contains("Accepted")
-                                                                  ){
-
-                                                                  FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
-                                                                  "org_dean": ""+widget.fullname,
-                                                                  "org_dean_status": ""+"Accepted",
-                                                                  "status": "Accepted",
-                                                                  }).then((onValue){
-
-                                                                  });
-                                                                  }else{
-                                                                    Alert(
-                                                                      context: context,
-                                                                       title:"Warning approval of this request is not complete",
-                                                                       type: AlertType.error
-                                                                       
-                                                                       ).show();
-
-                                                                  }
-
-                                                                
                                                                 }else if(widget.organization.contains("Campus-Wide") && widget.orgtype.contains("Adviser") ){
                                                                 FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
                                                                 "org_president": ""+widget.fullname,

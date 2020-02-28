@@ -5,6 +5,7 @@ import 'package:event_proposal_admin/Organization/Signup/Signup.dart';
 import 'package:event_proposal_admin/SAO/Home/ManageAccounts/Approvers.dart';
 import 'package:event_proposal_admin/SAO/Home/ManageAccounts/Organization.dart';
 import 'package:event_proposal_admin/SAO/Home/ManageAccounts/Venue.dart';
+import 'package:event_proposal_admin/SAO/Home/ManageAccounts/VenueApprover.dart';
 import 'package:event_proposal_admin/SAO/Home/acceptedproposal.dart';
 import 'package:event_proposal_admin/SAO/Home/menul-button.dart';
 import 'package:event_proposal_admin/SAO/Home/organizationList.dart';
@@ -482,6 +483,15 @@ void setManageAccount(BuildContext context) {
                                 onLongPressEnd: (_) {},
                                 onTap: () {
                                   Navigator.push(context,MaterialPageRoute(builder: (context) => VenueAccount(), fullscreenDialog: true));
+                                },
+                                ),
+                                SpringButton(
+                                SpringButtonType.OnlyScale,
+                                card('VenueApprovers Account', context, Color(0xFFFF3345)),
+                                onTapDown: (_) {},
+                                onLongPressEnd: (_) {},
+                                onTap: () {
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => VenueApproverAccount(), fullscreenDialog: true));
                                 },
                                 ),
                                 

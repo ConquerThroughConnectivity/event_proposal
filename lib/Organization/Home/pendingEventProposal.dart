@@ -301,6 +301,93 @@ class _EventPendingProposalState extends State<EventPendingProposal> with Single
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(4.0)),
                                           child: ListTile(
+                                          title: Text("General Objectives: "+" "+values.values.toList()[index]['general_objective'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Specific Objectives: "+" "+values.values.toList()[index]['specific_objective'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                       Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Planning Stage: "+" "+values.values.toList()[index]['planning_statge'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                       
+                                     
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Implementation: "+" "+values.values.toList()[index]['implementation'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Resource Requirement: "+" "+values.values.toList()[index]['resource_req'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Evaluation: "+" "+values.values.toList()[index]['evaluation'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                       Padding(padding: EdgeInsets.only(top: 30)),
+                                       Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
                                           leading: Icon(Icons.person_outline, color: Colors.black,),
                                           title: Text("Organization President: "+" "+values.values.toList()[index]['org_president'], style: TextStyle(
                                             color: Colors.black,
@@ -437,7 +524,13 @@ class _EventPendingProposalState extends State<EventPendingProposal> with Single
                                                           "status": "Pending",
                                                           'id': widget.id,
                                                           'date_of_event': values.values.toList()[index]['date_of_event'],
-                                                          'description': values.values.toList()[index]['description']
+                                                          'description': values.values.toList()[index]['description'],
+                                                          'general_objective': values.values.toList()[index]['general_objective'],
+                                                          'specific_objective': values.values.toList()[index]['specific_objective'],
+                                                          'planning_statge': values.values.toList()[index]['planning_statge'],
+                                                          'implementation': values.values.toList()[index]['implementation'],
+                                                          'resource_req': values.values.toList()[index]['resource_req'],
+                                                          'evaluation': values.values.toList()[index]['evaluation'],
                                                           });
                                                           popupInvalid("Success Wait for Approval", "Pending Approval");
                                                           }else{
@@ -460,7 +553,13 @@ class _EventPendingProposalState extends State<EventPendingProposal> with Single
                                                           "status": "Pending",
                                                           'id': widget.id,
                                                           'date_of_event': values.values.toList()[index]['date_of_event'],
-                                                          'description': values.values.toList()[index]['description']
+                                                          'description': values.values.toList()[index]['description'],
+                                                          'general_objective': values.values.toList()[index]['general_objective'],
+                                                          'specific_objective': values.values.toList()[index]['specific_objective'],
+                                                          'planning_statge': values.values.toList()[index]['planning_statge'],
+                                                          'implementation': values.values.toList()[index]['implementation'],
+                                                          'resource_req': values.values.toList()[index]['resource_req'],
+                                                          'evaluation': values.values.toList()[index]['evaluation'],
                                                           });
                                                           popupInvalid("Success Wait for Approval", "Pending Approval");
                                                           }
@@ -491,7 +590,13 @@ class _EventPendingProposalState extends State<EventPendingProposal> with Single
                                                           "status": "Pending",
                                                           'id': widget.id,
                                                           'date_of_event': values.values.toList()[index]['date_of_event'],
-                                                          'description': values.values.toList()[index]['description']
+                                                          'description': values.values.toList()[index]['description'],
+                                                          'general_objective': values.values.toList()[index]['general_objective'],
+                                                          'specific_objective': values.values.toList()[index]['specific_objective'],
+                                                          'planning_statge': values.values.toList()[index]['planning_statge'],
+                                                          'implementation': values.values.toList()[index]['implementation'],
+                                                          'resource_req': values.values.toList()[index]['resource_req'],
+                                                          'evaluation': values.values.toList()[index]['evaluation'],
                                                           });
                                                           popupInvalid("Success Wait for Approval", "Pending Approval");
                                                           }else{
@@ -514,7 +619,13 @@ class _EventPendingProposalState extends State<EventPendingProposal> with Single
                                                           "status": "Pending",
                                                           'id': widget.id,
                                                           'date_of_event': values.values.toList()[index]['date_of_event'],
-                                                          'description': values.values.toList()[index]['description']
+                                                          'description': values.values.toList()[index]['description'],
+                                                          'general_objective': values.values.toList()[index]['general_objective'],
+                                                          'specific_objective': values.values.toList()[index]['specific_objective'],
+                                                          'planning_statge': values.values.toList()[index]['planning_statge'],
+                                                          'implementation': values.values.toList()[index]['implementation'],
+                                                          'resource_req': values.values.toList()[index]['resource_req'],
+                                                          'evaluation': values.values.toList()[index]['evaluation'],
                                                           });
                                                           popupInvalid("Success Wait for Approval", "Pending Approval");
                                                           }

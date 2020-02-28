@@ -68,7 +68,10 @@ class _DeanPendingState extends State<DeanPending> {
                             physics: BouncingScrollPhysics(),
                             itemCount: values.values.toList().length,
                             itemBuilder: (BuildContext context, int index){
-                              if(values.values.toList()[index]['org_dean_status'].toString().contains("Pending")){
+                                if(values.values.toList()[index]['org_president_status'].toString().contains("Accepted") &&
+                                values.values.toList()[index]['org_adviser_status'].toString().contains("Accepted") && 
+                                values.values.toList()[index]['org_dean_status'].toString().contains("Pending")
+                                ){
                                 return Container(
                                 padding: EdgeInsets.only(bottom: 20),
                                 width: ScreenUtil.instance.setWidth(200),
@@ -118,7 +121,7 @@ class _DeanPendingState extends State<DeanPending> {
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
-                                          trailing: Text("Date: "+" "+values.values.toList()[index]['date'], style: TextStyle(
+                                          trailing: Text("Date: "+" "+values.values.toList()[index]['date_of_event'], style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: "Mops",
                                             fontSize: ScreenUtil.instance.setSp(18))),
@@ -268,8 +271,10 @@ class _DeanPendingState extends State<DeanPending> {
                                 )
                                 ),
                               );
+                                }
+                                
                               
-                              }
+                              
                               return Container();
                             }
                             

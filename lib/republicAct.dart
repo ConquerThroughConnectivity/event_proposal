@@ -36,9 +36,9 @@ class _RepublicActState extends State<RepublicAct> {
                   Center(
                     child: Padding(
                   padding: EdgeInsets.only(left: 30),
-                  child: Text("Indicating the purpose of the data gathered, who will process it, and when will the data be disposed.", style: TextStyle(
+                  child: Text("The collection of data is for the purpose of creating event. By signing this form, you are certifying that all information provided is true and correct and likewise authorizing this office to process of your information. Your accomplished from will be kept in a secured database management nad will be disposed after one year.", style: TextStyle(
                     fontFamily: "Mops",
-                    fontSize: 20,
+                    fontSize: 16,
                     color: Colors.black
                   ),),
                   ),

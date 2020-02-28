@@ -29,7 +29,6 @@ dependencies:
   firebase_database: ^3.1.0
   progress_button: ^0.0.2
   flutter_spinkit: "^4.1.1"
-  firebase_auth: ^0.14.0+5
   flushbar: "^1.9.1"
   bubble_tab_indicator: "^0.1.4"
   random_string: ^2.0.1
@@ -46,6 +45,8 @@ dependencies:
   flutter_slidable: "^0.5.4"
   sweetalert: ^0.0.1
   table_calendar: ^2.2.2
+  flutter_local_notifications: ^1.2.0+3
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

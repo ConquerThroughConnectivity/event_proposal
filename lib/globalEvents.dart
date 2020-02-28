@@ -180,6 +180,95 @@ class _TodayEventsState extends State<TodayEvents> {
                                             fontSize: ScreenUtil.instance.setSp(18))),
                                         ),
                                       ),
+                                       Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                        
+                                          child: ListTile(
+                                            leading: Icon(Icons.group_work),
+                                          title: Text("General Objectives: "+" "+values.values.toList()[index]['general_objective'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          
+                                          title: Text("Specific Objectives: "+" "+values.values.toList()[index]['specific_objective'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                       Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Planning Stage: "+" "+values.values.toList()[index]['planning_statge'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                       
+                                     
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Implementation: "+" "+values.values.toList()[index]['implementation'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Resource Requirement: "+" "+values.values.toList()[index]['resource_req'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
+                                      Card(
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)),
+                                          child: ListTile(
+                                          title: Text("Evaluation: "+" "+values.values.toList()[index]['evaluation'], style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: "Mops",
+                                            fontSize: ScreenUtil.instance.setSp(15))),
+                                          
+
+                                        ),
+                                      ),
                                       Padding(padding: EdgeInsets.only(top: 5)),
                       
                                       

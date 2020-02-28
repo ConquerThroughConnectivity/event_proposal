@@ -229,7 +229,7 @@ class _SignupOrganizationState extends State<SignupOrganization> {
                       (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
                       TextFormField(
                         inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z]")),
-                          LengthLimitingTextInputFormatter(1),
+                          LengthLimitingTextInputFormatter(10),
                         ],
                         textInputAction: TextInputAction.done,
                         controller: middlename,

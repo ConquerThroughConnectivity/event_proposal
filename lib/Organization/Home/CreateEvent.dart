@@ -22,6 +22,13 @@ final TextEditingController timeFrom = new TextEditingController();
 final TextEditingController timeTo = new TextEditingController();
 final TextEditingController eventDate = new TextEditingController();
 final TextEditingController description = new TextEditingController();
+
+final TextEditingController generaldescription = new TextEditingController();
+final TextEditingController specificdescription = new TextEditingController();
+final TextEditingController planningstage= new TextEditingController();
+final TextEditingController implementation = new TextEditingController();
+final TextEditingController resourcerequirement = new TextEditingController();
+final TextEditingController evaluation = new TextEditingController();
 final dateformat =DateFormat("hh:mm a");
 final evenFormat =DateFormat("yyyy-MM-dd");
 
@@ -92,7 +99,7 @@ class _CreateEventState extends State<CreateEvent> {
       allowFontScaling: true,
     )..init(context);
 
-    return Scaffold(
+    return WillPopScope(child:Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.4,
@@ -209,6 +216,195 @@ class _CreateEventState extends State<CreateEvent> {
                           prefixIcon: Icon(Icons.nature),
                         ),
                       ),
+                       Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 10,
+                        textInputAction: TextInputAction.done,
+                        controller: generaldescription,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =generaldescription.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "General Objectives",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                       Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 10,
+                        textInputAction: TextInputAction.done,
+                        controller: specificdescription,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =specificdescription.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Specific Objectives",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                       Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 10,
+                        textInputAction: TextInputAction.done,
+                        controller: planningstage,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =planningstage.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Planning Stage",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                       Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 10,
+                        textInputAction: TextInputAction.done,
+                        controller: implementation,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =implementation.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Implementation",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                      Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 5,
+                        textInputAction: TextInputAction.done,
+                        controller: resourcerequirement,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =resourcerequirement.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Resource Requirement",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                      Padding
+                      (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      TextFormField(
+                        maxLines: 5,
+                        textInputAction: TextInputAction.done,
+                        controller: evaluation,
+                        inputFormatters: [WhitelistingTextInputFormatter(RegExp("[a-zA-Z ]")),
+                         
+                        ],
+                        keyboardType: TextInputType.text,
+                        validator: (val){
+                          if(val.isEmpty){
+                            return 'This field cannot be Empty';
+                          }
+                          
+                        },
+                        onChanged: (val){
+                          setState(() {
+                          val =evaluation.text;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Evaluation",
+                          border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Color(0xFF2d3447))
+                          ),
+                          fillColor: Colors.white,
+                          focusColor: Colors.white,
+                          hasFloatingPlaceholder: true,
+                        ),
+                      ),
+                      
+                      
+
                       Padding
                       (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
                        AbsorbPointer(
@@ -712,7 +908,8 @@ class _CreateEventState extends State<CreateEvent> {
           ),
           ],
       ),
-    );
+    ),
+    onWillPop: () async=> false);
   }
 
   void popupInvalid(String message, String warning) {
@@ -765,6 +962,12 @@ class _CreateEventState extends State<CreateEvent> {
                                   'org_name': widget.orgname,
                                   'date_of_event': eventDate.text,
                                   'description': description.text,
+                                  'general_objective': generaldescription.text,
+                                  'specific_objective': specificdescription.text,
+                                  'planning_statge': planningstage.text,
+                                  'implementation': implementation.text,
+                                  'resource_req': resourcerequirement.text,
+                                  'evaluation': evaluation.text,
                                   });
 
                                   setState(() {
@@ -807,6 +1010,12 @@ class _CreateEventState extends State<CreateEvent> {
                                   'org_name': widget.orgname,
                                   'date_of_event': eventDate.text,
                                   'description': description.text,
+                                  'general_objective': generaldescription.text,
+                                  'specific_objective': specificdescription.text,
+                                  'planning_statge': planningstage.text,
+                                  'implementation': implementation.text,
+                                  'resource_req': resourcerequirement.text,
+                                  'evaluation': evaluation.text,
                                   });
 
                                   setState(() {
