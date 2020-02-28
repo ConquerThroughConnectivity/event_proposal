@@ -9,9 +9,12 @@ import 'package:event_proposal_admin/Organization/Home/pendingproposal.dart';
 import 'package:event_proposal_admin/Organization/Home/rejectedproposal.dart';
 import 'package:event_proposal_admin/Organization/Login/Login.dart';
 import 'package:event_proposal_admin/SAO/Home/menul-button.dart';
+import 'package:event_proposal_admin/SAO/utilities/loadingList.dart';
 import 'package:event_proposal_admin/globalEvents.dart';
 import 'package:event_proposal_admin/globalEventsUpcoming.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,6 +27,9 @@ bool isload =false;
 String orgtype;
 String name;
 String orgname;
+
+
+
 class HomeOrganization extends StatefulWidget {
   final String id;
   HomeOrganization({Key key, this.id}) : super(key: key);
@@ -36,6 +42,7 @@ class HomeOrganization extends StatefulWidget {
 
 
 class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerProviderStateMixin {
+  FirebaseMessaging _firebaseMessaging =new FirebaseMessaging();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
   int selectedIndex = 0;
   TabController tabController;
@@ -49,6 +56,103 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
 
   @override
   void initState() {
+    
+    // StreamBuilder(
+    //   stream: FirebaseDatabase.instance.reference().child("SAO").child("Proposal").orderByChild("id").equalTo(widget.id).onValue,
+    //   builder: (BuildContext context,AsyncSnapshot<Event> snapshot){
+    //     if(snapshot.connectionState ==ConnectionState.waiting){
+    //         return LoadingList();
+    //     }else{
+    //       if(snapshot.hasData){
+    //          Map<dynamic, dynamic> values =snapshot.data.snapshot.value;
+    //          if(values!=null){
+    //            values.forEach((key, values){
+    //              if(values['Accepted']){
+    //                flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    //               flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    //               var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
+    //               var iOS = new IOSInitializationSettings();
+    //               var initSetttings = new InitializationSettings(android, iOS);
+    //               flutterLocalNotificationsPlugin.initialize(initSetttings,
+    //               onSelectNotification: onSelectNotification);
+    //              }
+    //            });
+    //          }
+    //       }
+    //     }
+
+    //     return LoadingList();
+    //   },
+    // );
+  
+    FirebaseDatabase.instance.reference().child("SAO").child("Proposal").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
+      Map<dynamic, dynamic> values =await dataSnapshot.value;
+      if(values!=null){
+        values.forEach((key, values){
+         if(values!=null){
+           if(values['status'].toString().contains("Accepted")){
+             setState(() {
+               popupInvalid("Proposal Has Been Accepted", "Check my events");
+             });
+           }else{
+             popupInvalid("Proposal Has Been Rejected", "Check my events");
+           }
+         }
+
+      });
+      }else{
+        return;
+      }    
+
+    });
+
+
+    FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
+      Map<dynamic, dynamic> values =await dataSnapshot.value;
+      if(values!=null){
+        values.forEach((key, values){
+         if(values!=null){
+           if(values['approver'].toString().contains("Accepted")){
+             setState(() {
+               popupInvalid("Approver Has Been Accept your request", "Check my events");
+             });
+           }else if(values['approver'].toString().contains("Rejected")){
+             popupInvalid("Approver Has Been Reject your request", "Check my events");
+           }if(values['incharge'].toString().contains("Accepted")){
+             setState(() {
+               popupInvalid("Incharge Has Been Accept your request", "Check my events");
+             });
+           }else if(values['incharge'].toString().contains("Rejected")){
+              popupInvalid("Incharge Has Been Reject your request", "Check my events");
+           }if(values['org_adviser_status'].toString().contains("Accepted")){
+             setState(() {
+               popupInvalid("Adviser Has Been Accept your request", "Check my events");
+             });
+           }else if(values['org_adviser_status'].toString().contains("Rejected")){
+             setState(() {
+               popupInvalid("Incharge Has Been Reject your request", "Check my events");
+             });
+           }if(values['org_president_status'].toString().contains("Accepted")){
+             setState(() {
+               popupInvalid("President Has Been Accept your request", "Check my events");
+             });
+           }else if(values['org_president_status'].toString().contains("Rejected")){
+             popupInvalid("President Has Been Accept your request", "Check my events");
+           }if(values['org_dean_status'].toString().contains("Accepted")){
+                 popupInvalid("Dean Has Been Accept your request", "Check my events");
+           }else if(values['org_dean_status'].toString().contains("Rejected")){
+                 popupInvalid("Dean Has Been Reject your request", "Check my events");
+           }
+         }
+
+      });
+      }else{
+        return;
+      }    
+
+    });
+
+
     tabController = new TabController(length: 2, vsync: this);
     FirebaseDatabase.instance.reference().child("User").child("Organization").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
       Map<dynamic, dynamic> values =await dataSnapshot.value;
@@ -64,7 +168,7 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
           print(orgtype);
           print(orgname);
           print(widget.id);
-          
+
       });
       }else{
         return;
@@ -72,12 +176,9 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
 
     });
 
-    // flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-    // var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
-    // var iOS = new IOSInitializationSettings();
-    // var initSetttings = new InitializationSettings(android, iOS);
-    // flutterLocalNotificationsPlugin.initialize(initSetttings,
-    // onSelectNotification: onSelectNotification);
+    
+
+    
 
 
     // FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
@@ -98,21 +199,30 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
 
     // });
 
+          
 
+          // _firebaseMessaging.configure(
+          //   onMessage: (Map<String, dynamic> message) async{
+          //     print("Message: $message");
+          //   },
+          //   onResume: (Map<String, dynamic> message) async{
+          //     print("Message: $message");
+          //   },
+          //   onLaunch: (Map<String, dynamic> message) async{
+          //     print("Message: $message");
+          //   }
+          // );
+         
     
     super.initState();
+    
   }
   
-  Future onSelectNotification(String payload) {
-    debugPrint("payload : $payload");
-    return showDialog(
-      context: context,
-      builder: (_) => new AlertDialog(
-        title: new Text('Notification'),
-        content: new Text('$payload'),
-      ),
-    );
-  }
+      
+
+
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -181,6 +291,7 @@ class _HomeOrganizationState extends State<HomeOrganization>with SingleTickerPro
   );
 }
 
+  
 
   Widget body(){
   return Container(
@@ -399,6 +510,29 @@ showNotification() async {
     await flutterLocalNotificationsPlugin.show(
         0, 'An Approval has been accepted', 'Notification', platform,
         payload: 'Youre request has been accepted');
+  }
+  void popupInvalid(String message, String warning) {
+    Flushbar(
+      title: warning,
+      messageText: Text(
+        message,
+        style: TextStyle(fontSize: 17.0, color: Colors.white),
+      ),
+      reverseAnimationCurve: Curves.decelerate,
+      forwardAnimationCurve: Curves.easeInOutExpo,
+      showProgressIndicator: true,
+      progressIndicatorBackgroundColor: Color(0xFFFF3345),
+      shouldIconPulse: true,
+      flushbarStyle: FlushbarStyle.GROUNDED,
+      flushbarPosition: FlushbarPosition.TOP,
+      isDismissible: true,
+      icon: Icon(
+        Icons.notification_important,
+        size: 30.0,
+        color: Color(0xFFFF3345),
+      ),
+      duration: Duration(seconds: 7),
+    )..show(context);
   }
 
  

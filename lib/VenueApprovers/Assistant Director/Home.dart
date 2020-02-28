@@ -13,6 +13,7 @@ import 'package:event_proposal_admin/VenueApprovers/calendar.dart';
 import 'package:event_proposal_admin/globalEvents.dart';
 import 'package:event_proposal_admin/globalEventsUpcoming.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -37,6 +38,20 @@ class _HomeVenueApproverState extends State<HomeVenueApprover> with SingleTicker
   TabController tabController;
   @override
   void initState() {
+    FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").orderByChild("approver").equalTo("Pending").once().then((DataSnapshot dataSnapshot) async{
+      Map<dynamic, dynamic> values =await dataSnapshot.value;
+      if(values!=null){
+        values.forEach((key, values){
+         if(values!=null){
+           popupInvalid("New Pending Proposal", "Check Pending");
+         }
+
+      });
+      }else{
+        return;
+      }    
+
+    });
     tabController = new TabController(length: 2, vsync: this);
     //getting the user ID and full name. 
     FirebaseDatabase.instance.reference().child("User").child("VenueApprovers").orderByChild("id").equalTo(widget.id).once().then((DataSnapshot dataSnapshot) async{
@@ -320,4 +335,27 @@ Widget drawer(){
     ),
   );
 }
+void popupInvalid(String message, String warning) {
+    Flushbar(
+      title: warning,
+      messageText: Text(
+        message,
+        style: TextStyle(fontSize: 17.0, color: Colors.white),
+      ),
+      reverseAnimationCurve: Curves.decelerate,
+      forwardAnimationCurve: Curves.easeInOutExpo,
+      showProgressIndicator: true,
+      progressIndicatorBackgroundColor: Color(0xFFFF3345),
+      shouldIconPulse: true,
+      flushbarStyle: FlushbarStyle.GROUNDED,
+      flushbarPosition: FlushbarPosition.TOP,
+      isDismissible: true,
+      icon: Icon(
+        Icons.notification_important,
+        size: 30.0,
+        color: Color(0xFFFF3345),
+      ),
+      duration: Duration(seconds: 7),
+    )..show(context);
+  }
 }
