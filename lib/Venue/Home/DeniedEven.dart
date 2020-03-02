@@ -60,7 +60,7 @@ class _DeniedEventState extends State<DeniedEvent> {
                             physics: BouncingScrollPhysics(),
                             itemCount: values.values.toList().length,
                             itemBuilder: (BuildContext context, int index){
-                              if(values.values.toList()[index]['incharge'].toString().contains("Denied")){
+                              if(values.values.toList()[index]['incharge'].toString().contains("Rejected")){
                                 return Container(
                                 padding: EdgeInsets.only(bottom: 20),
                                 width: ScreenUtil.instance.setWidth(200),

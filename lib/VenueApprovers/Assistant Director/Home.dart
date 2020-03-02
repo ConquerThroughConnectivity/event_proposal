@@ -43,7 +43,9 @@ class _HomeVenueApproverState extends State<HomeVenueApprover> with SingleTicker
       if(values!=null){
         values.forEach((key, values){
          if(values!=null){
-           popupInvalid("New Pending Proposal", "Check Pending");
+           if(values['incharge'].toString().contains("Accepted")){
+             popupInvalid("New Pending Proposal", "Check Pending");
+           }
          }
 
       });

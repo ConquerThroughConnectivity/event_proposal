@@ -273,7 +273,7 @@ class _PendingVenueState extends State<PendingVenue> {
                                                               setState(() {
                                                                 Navigator.pop(context);
                                                                 FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
-                                                                "incharge": ""+"Denied",
+                                                                "incharge": ""+"Rejected",
                                                                 "name_incharge": widget.fullname,
                                                                 }).then((onValue){
 

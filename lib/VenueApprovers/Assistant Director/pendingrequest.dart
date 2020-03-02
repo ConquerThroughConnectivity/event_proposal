@@ -74,7 +74,7 @@ class _PendingVenueApproversState extends State<PendingVenueApprovers> {
                             physics: BouncingScrollPhysics(),
                             itemCount: values.values.toList().length,
                             itemBuilder: (BuildContext context, int index){
-                              if(values.values.toList()[index]['approver'].toString().contains("Pending")){
+                              if(values.values.toList()[index]['approver'].toString().contains("Pending") && values.values.toList()[index]['incharge'].toString().contains("Accepted")){
                                 return Container(
                                 padding: EdgeInsets.only(bottom: 20),
                                 width: ScreenUtil.instance.setWidth(200),
@@ -244,7 +244,7 @@ class _PendingVenueApproversState extends State<PendingVenueApprovers> {
                                                               setState(() {
                                                                 Navigator.pop(context);
                                                                 FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
-                                                                "approver": ""+"Denied",
+                                                                "approver": ""+"Rejected",
                                                                 "name_approver": widget.fullname,
                                                                 }).then((onValue){
 

@@ -59,7 +59,7 @@ class _ApproverRejectedState extends State<ApproverRejected> {
                             physics: BouncingScrollPhysics(),
                             itemCount: values.values.toList().length,
                             itemBuilder: (BuildContext context, int index){
-                              if(values.values.toList()[index]['approver'].toString().contains("Denied")){
+                              if(values.values.toList()[index]['approver'].toString().contains("Rejected")){
                                 return Container(
                                 padding: EdgeInsets.only(bottom: 20),
                                 width: ScreenUtil.instance.setWidth(200),

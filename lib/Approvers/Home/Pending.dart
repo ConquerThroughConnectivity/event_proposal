@@ -356,14 +356,14 @@ class _ApproverPendingState extends State<ApproverPending> {
                                                                 if(widget.orgtype.contains("Adviser")){
                                                                 FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
                                                                 "org_adviser": ""+widget.fullname,
-                                                                "org_adviser_status": ""+"Denied"
+                                                                "org_adviser_status": ""+"Rejected"
                                                                 }).then((onValue){
 
                                                                 });
                                                                 }else if(widget.orgtype.contains("Organization President")){
                                                                 FirebaseDatabase.instance.reference().child("Venue").child("VenueReservation").child(values.keys.toList()[index]).update({
                                                                 "org_president": ""+widget.fullname,
-                                                                "org_president_status": ""+"Denied",
+                                                                "org_president_status": ""+"Rejected",
                                                                 }).then((onValue){
 
                                                                 });

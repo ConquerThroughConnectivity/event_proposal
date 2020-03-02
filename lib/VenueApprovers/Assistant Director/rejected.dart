@@ -35,7 +35,7 @@ class _DeniedEventApproversState extends State<DeniedEventApprovers> {
             });
           }),
         title: Text(
-          "Denied Venue", style: TextStyle(
+          "Rejected Venue", style: TextStyle(
            fontFamily: "Mops",
            fontSize: ScreenUtil.instance.setSp(20), 
           ),
@@ -60,7 +60,7 @@ class _DeniedEventApproversState extends State<DeniedEventApprovers> {
                             physics: BouncingScrollPhysics(),
                             itemCount: values.values.toList().length,
                             itemBuilder: (BuildContext context, int index){
-                              if(values.values.toList()[index]['incharge'].toString().contains("Denied")){
+                              if(values.values.toList()[index]['incharge'].toString().contains("Rejected")){
                                 return Container(
                                 padding: EdgeInsets.only(bottom: 20),
                              
