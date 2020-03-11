@@ -11,6 +11,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_particles/particles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:progress_button/progress_button.dart';
 import 'package:spring_button/spring_button.dart';
@@ -60,6 +61,12 @@ class _LoginSaoState extends State<LoginSao> {
     
       return WillPopScope(child:Scaffold(
         appBar: AppBar(
+          title: Text('Event Proposal Sao Director', style: TextStyle(
+            fontFamily: "Mops",
+            fontSize: ScreenUtil.instance.setSp(25),
+            color: Colors.white
+          )),
+          centerTitle: true,
         elevation: 0.0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios), onPressed: (){
@@ -75,14 +82,8 @@ class _LoginSaoState extends State<LoginSao> {
         child: Column(
           crossAxisAlignment:CrossAxisAlignment.center,
           children: <Widget>[
-            Center(
-            child: Text('Event Proposal Sao Director', style: TextStyle(
-            fontFamily: "Mops",
-            fontSize: ScreenUtil.instance.setSp(25),
-            color: Colors.black
-          )),
-          ),
-          SingleChildScrollView(
+            Particles(30, Color(0xFFFF3345)),
+            SingleChildScrollView(
             child: Form(
             key: formkey,
             child: Card(

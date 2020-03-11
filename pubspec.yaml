@@ -47,6 +47,8 @@ dependencies:
   firebase_core: ^0.4.3+3
   firebase_database: ^3.1.0
   firebase_messaging: ^4.0.0+3
+  panorama: ^0.0.2
+  flutter_particles: ^1.0.0+7
 
 dev_dependencies:
   flutter_test:
@@ -81,7 +83,7 @@ flutter:
           fonts:
             - asset: lib/assets/Montserrat-Regular.ttf
   assets:
-    - lib/assets/background.jpg
+    - lib/assets/background.jpeg
     - lib/assets/logo.png
     - lib/assets/loading.gif
     - lib/assets/UElogo.png

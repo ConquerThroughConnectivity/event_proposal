@@ -6,7 +6,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_particles/particles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:panorama/panorama.dart';
 import 'package:progress_button/progress_button.dart';
 
 final double defaultScreenWidth = 420.0;
@@ -34,6 +36,11 @@ class _LoginVenueApproversState extends State<LoginVenueApprovers> {
      return WillPopScope(
        child:Scaffold(
          appBar:AppBar(
+           title: Text('Venue Approvers', style: TextStyle(
+            fontFamily: "Mops",
+            fontSize: ScreenUtil.instance.setSp(25),
+            color: Colors.white
+          )),
            centerTitle: true,
         elevation: 4.0,
         leading: IconButton(
@@ -48,25 +55,17 @@ class _LoginVenueApproversState extends State<LoginVenueApprovers> {
       padding: EdgeInsets.only(top: 10),
       color: Colors.white,
         child: Column(
-          crossAxisAlignment:CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: 20),
-            child: Center(
-            child: Text('Venue Approvers', style: TextStyle(
-            fontFamily: "Mops",
-            fontSize: ScreenUtil.instance.setSp(25),
-            color: Colors.black
-          )),
-          ),
-            ),
+             Particles(30, Color(0xFFFF3345)),
+           
           SingleChildScrollView(
             child: Form(
             child: Card(
               margin: EdgeInsets.only(
                 left: ScreenUtil.instance.setWidth(20.0),
                 right: ScreenUtil.instance.setWidth(20.0),
-                top: ScreenUtil.instance.setWidth(40.0),
+                top: ScreenUtil.instance.setWidth(50.0),
                 bottom: ScreenUtil.instance.setWidth(5.0),
               ),
               color: Colors.white,
@@ -202,6 +201,7 @@ class _LoginVenueApproversState extends State<LoginVenueApprovers> {
             ),
             ),
           ),
+          
             Padding(padding: EdgeInsets.only(top:ScreenUtil.instance.setWidth(20))),
               Row(
               mainAxisAlignment: MainAxisAlignment.center,

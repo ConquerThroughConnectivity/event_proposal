@@ -7,7 +7,9 @@ import 'package:event_proposal_admin/Venue/Login/Login.dart';
 import 'package:event_proposal_admin/VenueApprovers/Assistant%20Director/Login.dart';
 import 'package:event_proposal_admin/republicAct.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_particles/particles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:panorama/panorama.dart';
 import 'package:spring_button/spring_button.dart';
 
 
@@ -32,15 +34,27 @@ class _MainState extends State<Main> {
     allowFontScaling: true,
 
     )..init(context);
-    return WillPopScope(child: Scaffold(
-    backgroundColor: Color(0xFFFF3345),
+    
+    return WillPopScope(
+    child: Scaffold(
+      backgroundColor: Color(0xFFFF3345),
     body: Stack(
       fit: StackFit.expand,
       children: <Widget>[
+       
+        Container(
+            child:Panorama(
+            interactive: true,
+            animReverse: true,
+            animSpeed: 2.0,
+            minLongitude: 4.0,
+            maxLongitude: 100.0,
+            child: Image.asset("lib/assets/background.jpeg"),
+            ),
+            ),
         Padding(
           padding: EdgeInsets.only(bottom: ScreenUtil.instance.setWidth(250), left:ScreenUtil.instance.setWidth(20), right: ScreenUtil.instance.setWidth(20) ),
           child: Container(
-           
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
@@ -70,7 +84,6 @@ class _MainState extends State<Main> {
           child: Text("Automated Event Proposal Management System for Recognized Student Organization",
           textAlign: TextAlign.center,
           style: TextStyle(
-            
             fontFamily: "Mops",
             fontSize: 25.0,
             fontWeight: FontWeight.w100,
@@ -83,7 +96,11 @@ class _MainState extends State<Main> {
     ),
   
     ),
-    onWillPop: ()  async=> false);
+    onWillPop: ()  async=> false
+    
+    );
+
+    
     
   }
   void setBottomSheet(BuildContext context) {
