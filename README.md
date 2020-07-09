@@ -1,4 +1,4 @@
-# event_proposal_admin
+# Event Proposal UE
 
 A new Flutter project.
 
