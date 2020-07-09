@@ -535,8 +535,8 @@ class _ApproverSignupState extends State<ApproverSignup> {
                               "value": "Electronics Engineering Socity -Institute of Electronics",
                             },
                             {
-                              "display": "Institute of Electrical and Electronics Engineers- UE ",
-                              "value": "Institute of Electrical and Electronics Engineers- UE ",
+                              "display": "Institute of Electrical and Electronics Engineers- UE",
+                              "value": "Institute of Electrical and Electronics Engineers- UE",
                             },
                             {
                               "display": "league of Information Technology Students (LITS)",
@@ -679,7 +679,7 @@ class _ApproverSignupState extends State<ApproverSignup> {
                             },
                             {
                               "display": "CFAD- Architecture and Design Student Council(CFAD-SC)",
-                              "value": "ARKI(probationary)",
+                              "value": "CFAD- Architecture and Design Student Council(CFAD-SC)",
                             }
                             }.cast().toList();
                               });

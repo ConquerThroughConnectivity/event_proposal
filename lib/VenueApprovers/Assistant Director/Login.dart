@@ -195,6 +195,7 @@ class _LoginVenueApproversState extends State<LoginVenueApprovers> {
                       ),
                     Padding
                       (padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(20))),
+                      
                     ],
                   ),
                   ),
@@ -206,6 +207,7 @@ class _LoginVenueApproversState extends State<LoginVenueApprovers> {
               Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                 Particles(30, Color(0xFFFF3345)),
                     // Padding(
                     // padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(100),),
                     // child:  Text('Do you have an Account in Organization? if not ',

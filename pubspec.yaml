@@ -49,7 +49,8 @@ dependencies:
   firebase_messaging: ^4.0.0+3
   panorama: ^0.0.2
   flutter_particles: ^1.0.0+7
-
+  
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

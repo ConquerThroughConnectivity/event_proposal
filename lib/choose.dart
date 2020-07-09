@@ -4,7 +4,6 @@ import 'package:event_proposal_admin/Organization/Login/Login.dart';
 import 'package:event_proposal_admin/SAO/Login/login.dart';
 import 'package:event_proposal_admin/SAO/Signup/signup.dart';
 import 'package:event_proposal_admin/Venue/Login/Login.dart';
-import 'package:event_proposal_admin/VenueApprovers/Assistant%20Director/Login.dart';
 import 'package:event_proposal_admin/republicAct.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_particles/particles.dart';
@@ -180,7 +179,7 @@ class _MainState extends State<Main> {
                                 onTapDown: (_) {},
                                 onLongPressEnd: (_) {},
                                 onTap: () {
-                                  Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => LoginVenueApprovers(), fullscreenDialog: true));
+                                  // Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => LoginVenueApprovers(), fullscreenDialog: true));
                                 },
                                 ),
                         ],

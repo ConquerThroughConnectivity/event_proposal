@@ -251,19 +251,7 @@ class _OrganizationRejectedState extends State<OrganizationRejected> {
                                             fontSize: ScreenUtil.instance.setSp(15))),
                                         ),
                                       ),
-                                      Card(
-                                        color: Colors.white,
-                                        elevation: 10.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(4.0)),
-                                          child: ListTile(
-                                          leading: Icon(Icons.person_pin, color: Colors.black,),
-                                          title: Text("Approved By: "+" "+"Sao Director", style: TextStyle(
-                                            color: Colors.black,
-                                            fontFamily: "Mops",
-                                            fontSize: ScreenUtil.instance.setSp(15))),
-                                        ),
-                                      ),
+                                     
                                       
                                     ],
                                   ),

@@ -1,5 +1,4 @@
 import 'package:event_proposal_admin/SAO/utilities/loading.dart';
-import 'package:event_proposal_admin/VenueApprovers/Assistant%20Director/Login.dart';
 import 'package:event_proposal_admin/republicAct.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flushbar/flushbar.dart';
@@ -18,6 +17,8 @@ final TextEditingController lastname = new TextEditingController();
 final TextEditingController schoolID = new TextEditingController();
 
 bool isSee =true;
+
+bool isload =true;
 final key = GlobalKey<FormState>();
 class EditForm extends StatefulWidget {
   final String schoolid;

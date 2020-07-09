@@ -48,7 +48,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ),),
          ),
       ),
-       Padding(
+       Container(
+         child: Padding(
            padding: EdgeInsets.only(top: 200),
            child: Center(
           child: SpinKitCubeGrid(
@@ -57,6 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
          ),
       ),
+       ),
           
        ],
 
